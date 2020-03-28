@@ -162,7 +162,7 @@ void menu_main() {
     if (!busy) SUBMENU(MSG_MMU2_MENU, menu_mmu2);
   #endif
 
-  SUBMENU(MSG_CONFIGURATION, menu_configuration);
+  // SUBMENU(MSG_CONFIGURATION, menu_configuration);
 
   #if ENABLED(CUSTOM_USER_MENUS)
     #ifdef CUSTOM_USER_MENU_TITLE
@@ -188,7 +188,7 @@ void menu_main() {
   #endif
 
   #if ENABLED(LED_CONTROL_MENU)
-    SUBMENU(MSG_LED_CONTROL, menu_led);
+    // SUBMENU(MSG_LED_CONTROL, menu_led); 
   #endif
 
   //

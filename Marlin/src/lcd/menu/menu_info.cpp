@@ -92,6 +92,7 @@
 //
 // About Printer > Thermistors
 //
+
 void menu_info_thermistors() {
   if (ui.use_click()) return ui.go_back();
 
@@ -304,9 +305,9 @@ void menu_info() {
     ));
   #else
     SUBMENU(MSG_INFO_PRINTER_MENU, menu_info_printer);           // Printer Info >
-    SUBMENU(MSG_INFO_BOARD_MENU, menu_info_board);               // Board Info >
+    // SUBMENU(MSG_INFO_BOARD_MENU, menu_info_board);               // Board Info >
     #if EXTRUDERS
-      SUBMENU(MSG_INFO_THERMISTOR_MENU, menu_info_thermistors);  // Thermistors >
+      // SUBMENU(MSG_INFO_THERMISTOR_MENU, menu_info_thermistors);  // Thermistors >
     #endif
   #endif
 
