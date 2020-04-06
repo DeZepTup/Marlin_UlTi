@@ -28,11 +28,8 @@
 /**
  * Marlin release version identifier
  */
-<<<<<<< HEAD
-
-=======
 //#define SHORT_BUILD_VERSION "2.0.5.3"
->>>>>>> upstream/2.0.x
+
 
 /**
  * Verbose version identifier which should contain a reference to the location
