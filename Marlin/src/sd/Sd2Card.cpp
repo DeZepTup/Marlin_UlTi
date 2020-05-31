@@ -325,14 +325,14 @@ bool Sd2Card::readBlock(uint32_t blockNumber, uint8_t* dst) {
   if (type() != SD_CARD_TYPE_SDHC) blockNumber <<= 9;   // Use address if not SDHC card
 
   #if ENABLED(SD_CHECK_AND_RETRY)
-    uint8_t retryCnt = 3;
+    uint8_t retryCnt = 15;
     for (;;) {
       if (cardCommand(CMD17, blockNumber))
         error(SD_CARD_ERROR_CMD17);
       else if (readData(dst, 512))
         return true;
 
-      chipDeselect();
+    //  chipDeselect();
       if (!--retryCnt) break;
 
       cardCommand(CMD12, 0); // Try sending a stop command, ignore the result.
