@@ -72,7 +72,7 @@ static inline void _lcd_goto_next_corner() {
       #endif    
     #endif
     }  
-//ULTI_STEEL_TBD     
+//ULTI_STEEL_CUSTOM     
   line_to_current_position(manual_feedrate_mm_s.x);
   line_to_z(LEVEL_CORNERS_HEIGHT);
   if (++bed_corner > (3
