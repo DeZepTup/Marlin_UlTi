@@ -1,4 +1,7 @@
 # Trying to keep ULTI STEEL fork updated with the latest official
+This branch is based on the old version on official ivilol github.
+You might want to use the [main branch](https://github.com/DeZepTup/Marlin_UlTi/tree/main).
+
 If you tested **THIS** branch - please contact me in Telegram - [@DeZepTup](https://t.me/DeZepTup)
 
 ## Сonfigurations?
