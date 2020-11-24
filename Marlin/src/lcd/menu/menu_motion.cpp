@@ -192,6 +192,14 @@ void _menu_move_distance(const AxisEnum axis, const screenFunc_t func, const int
       extern const char NUL_STR[];
       SUBMENU_P(NUL_STR, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
 //ULTI_STEEL_CUSTOM
+//MARLIN_OFFICIAL:
+//        MENU_ITEM_ADDON_START(0 + ENABLED(HAS_MARLINUI_HD44780));
+//        lcd_put_u8str(tmp);
+//        MENU_ITEM_ADDON_END();
+//      #else
+//        SUBMENU_P(tmp, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
+//      #endif
+//
       MENU_ITEM_ADDON_START(0
         #if HAS_CHARACTER_LCD
           + 1
