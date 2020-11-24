@@ -4,10 +4,16 @@ If you tested **THIS** branch - please contact me in Telegram - [@DeZepTup](http
 
 ## Сonfigurations?
 #### TBD in [AGG(ULTI_STEEL)](https://t.me/AGG_ULTI_Steel) 
+#### Комментарии в коде:
 //ULTI_STEEL_CUSTOM - изменения относительно офф Marlin
+
 //MARLIN_OFFICIAL - Код офф Marlin, закоменчено, но оставлено для референса
+
 //ULTI_STEEL_TBD - Возможно стоит обновить до оптимальных значений либо отметка о изменении относительно последней официальной прошивки
+
 //ULTI_TESTING - То, что поломалось\изменилось от офф Marlin и нуждается в тесте
+
+
 ------
 
 
