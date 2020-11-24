@@ -188,11 +188,46 @@ void _menu_move_distance(const AxisEnum axis, const screenFunc_t func, const int
       char tmp[strlen_P(label) + 10 + 1], numstr[10];
       sprintf_P(tmp, label, dtostrf(SHORT_MANUAL_Z_MOVE, 1, digs, numstr));
 
-    #if DISABLED(HAS_GRAPHICAL_TFT)
-      extern const char NUL_STR[];
-      SUBMENU_P(NUL_STR, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
 //ULTI_STEEL_CUSTOM
+//     #if DISABLED(HAS_GRAPHICAL_TFT)
+//       extern const char NUL_STR[];
+//       SUBMENU_P(NUL_STR, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
+//       MENU_ITEM_ADDON_START(0
+//         #if HAS_CHARACTER_LCD
+//           + 1
+//         #endif
+//       );
+//         char tmp[30], numstr[10];
+//         // Determine digits needed right of decimal
+//         const uint8_t digs = !UNEAR_ZERO((SHORT_MANUAL_Z_MOVE) * 1000 - int((SHORT_MANUAL_Z_MOVE) * 1000)) ? 4 :
+//                              !UNEAR_ZERO((SHORT_MANUAL_Z_MOVE) *  100 - int((SHORT_MANUAL_Z_MOVE) *  100)) ? 3 : 2;
+//         sprintf_P(tmp, GET_TEXT(MSG_MOVE_Z_DIST), dtostrf(SHORT_MANUAL_Z_MOVE, 1, digs, numstr));
+//         lcd_put_u8str(tmp);
+//       MENU_ITEM_ADDON_END();
+//     #else
+//       SUBMENU_P(tmp, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
+//     #endif
+//   }
+//   END_MENU();
+// }
+
+//NOT WORKING AFTER UPDATE - CHECK WITH OFICIAL MARLIN
+//ULTI_TESTING
+
 //MARLIN_OFFICIAL:
+      #if DISABLED(HAS_GRAPHICAL_TFT)
+        extern const char NUL_STR[];
+        SUBMENU_P(NUL_STR, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
+        MENU_ITEM_ADDON_START(0 + ENABLED(HAS_MARLINUI_HD44780));
+        lcd_put_u8str(tmp);
+        MENU_ITEM_ADDON_END();
+      #else
+        SUBMENU_P(tmp, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
+      #endif
+    }
+  }
+  END_MENU();
+}
 //        MENU_ITEM_ADDON_START(0 + ENABLED(HAS_MARLINUI_HD44780));
 //        lcd_put_u8str(tmp);
 //        MENU_ITEM_ADDON_END();
@@ -200,24 +235,7 @@ void _menu_move_distance(const AxisEnum axis, const screenFunc_t func, const int
 //        SUBMENU_P(tmp, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
 //      #endif
 //
-      MENU_ITEM_ADDON_START(0
-        #if HAS_CHARACTER_LCD
-          + 1
-        #endif
-      );
-        char tmp[30], numstr[10];
-        // Determine digits needed right of decimal
-        const uint8_t digs = !UNEAR_ZERO((SHORT_MANUAL_Z_MOVE) * 1000 - int((SHORT_MANUAL_Z_MOVE) * 1000)) ? 4 :
-                             !UNEAR_ZERO((SHORT_MANUAL_Z_MOVE) *  100 - int((SHORT_MANUAL_Z_MOVE) *  100)) ? 3 : 2;
-        sprintf_P(tmp, GET_TEXT(MSG_MOVE_Z_DIST), dtostrf(SHORT_MANUAL_Z_MOVE, 1, digs, numstr));
-        lcd_put_u8str(tmp);
-      MENU_ITEM_ADDON_END();
-    #else
-      SUBMENU_P(tmp, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
-    #endif
-  }
-  END_MENU();
-}
+
 
 #if E_MANUAL
 
