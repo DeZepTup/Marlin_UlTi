@@ -1397,7 +1397,7 @@
 #if HAS_MARLINUI_U8GLIB
   // Show SD percentage next to the progress bar
   //ULTI_STEEL_TBD
-  #define DOGM_SD_PERCENT
+  //#define DOGM_SD_PERCENT
 
   // Save many cycles by drawing a hollow frame or no frame on the Info Screen
   //#define XYZ_NO_FRAME
