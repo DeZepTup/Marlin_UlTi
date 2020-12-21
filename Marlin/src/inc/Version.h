@@ -25,7 +25,7 @@
  * Release version. Leave the Marlin version or apply a custom scheme.
  */
 #ifndef SHORT_BUILD_VERSION
-  #define SHORT_BUILD_VERSION "v1.1.5U_bf-DeZ-main"
+  #define SHORT_BUILD_VERSION "v1.1.12-DeZ-main"
 #endif
 
 /**
@@ -33,7 +33,7 @@
  * vendor name, download location, GitHub account, etc.
  */
 #ifndef DETAILED_BUILD_VERSION
-  #define DETAILED_BUILD_VERSION "UlTi steel v1.1.5U_bf, DeZepTup/Marlin_UlTi-main, 29.10.2020"
+  #define DETAILED_BUILD_VERSION "UlTi steel v1.1.12, DeZepTup/Marlin_UlTi-main, 29.10.2020"
 #endif
 
 /**
@@ -73,7 +73,7 @@
  * Define a generic printer name to be output to the LCD after booting Marlin.
  */
 #ifndef MACHINE_NAME
-  #define MACHINE_NAME "USv1.1.5U_bf-DeZ/main"
+  #define MACHINE_NAME "USv1.1.12-DeZ/main"
 #endif
 
 /**

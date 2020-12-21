@@ -70,7 +70,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Ivilol.ru, UlTi Steel v1.1.5U_bf, DeZepTup/Marlin_UlTi-main, 29.10.2020)" // Author, Official Version, repository/fork-branch, update date
+#define STRING_CONFIG_H_AUTHOR "(Ivilol.ru, UlTi Steel v1.1.12, DeZepTup/Marlin_UlTi-main, 21.12.2020)" // Author, Official Version, repository/fork-branch, update date
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -135,7 +135,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "UlTi steel v1.1.5U_bf, DeZepTup/Marlin_UlTi-main, 29.10.2020" //Official Version, repository/fork-branch, update date
+#define CUSTOM_MACHINE_NAME "UlTi Steel v1.1.12, DeZepTup/Marlin_UlTi-main, 21.12.2020" //Official Version, repository/fork-branch, update date
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
