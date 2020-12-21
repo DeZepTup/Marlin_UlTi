@@ -1,9 +1,11 @@
-# Trying to keep ULTI STEEL fork updated with the latest official
-This branch is based on the latest version provided by Tiger.
-If you tested **THIS** branch - please contact me in Telegram - [@DeZepTup](https://t.me/DeZepTup)
+# Эта прошивка основана на официальной прошивке для ULTI STEEL от IVILOL, с периодическими обновлениями с MarlinFirmware/Marlin/bugfix-2.0.x
+#### Данная прошивка не содержит никаких модификаций относительно дефолтовой (за исключением связанных с обновлением версии офф Marlin. Если вы хотите иметь свежую прошивку, но без изменений - вам нужна эта прошивка.
+Если с максимумом фич и кастомизаций - прошивка от Ursoft.
 
-## Сonfigurations?
-#### TBD in [AGG(ULTI_STEEL)](https://t.me/AGG_ULTI_Steel) 
+Если с использованием только марлиновских новых фич, без кастомных модулей - моя (TBD [название нового бранча]).
+
+##### Подробности, советы, профили, собранные прошивки - на канале [AGG(ULTI_STEEL)](https://t.me/AGG_ULTI_Steel)
+##### Есть предложения? [@DeZepTup](https://t.me/DeZepTup)
 #### Комментарии в коде:
 //ULTI_STEEL_CUSTOM - изменения относительно офф Marlin
 
