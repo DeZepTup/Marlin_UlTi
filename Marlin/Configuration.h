@@ -70,7 +70,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Ivilol.ru, UlTi Steel v1.1.12, DeZepTup/Marlin_UlTi-main, 21.12.2020)" // Author, Official Version, repository/fork-branch, update date
+#define STRING_CONFIG_H_AUTHOR "(Ivilol.ru, UlTi Steel v1.1.14, DeZepTup/Marlin_UlTi-Luxury, 21.12.2020)" // Author, Official Version, repository/fork-branch, update date
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -135,7 +135,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "UlTi Steel v1.1.12, DeZepTup/Marlin_UlTi-main, 21.12.2020" //Official Version, repository/fork-branch, update date
+#define CUSTOM_MACHINE_NAME "UlTi Steel v1.1.14, DeZepTup/Marlin_UlTi-Luxury, 21.12.2020" //Official Version, repository/fork-branch, update date
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -836,7 +836,7 @@
  */
  
 //ULTI_STEEL_TBD - do we need it?
-//#define S_CURVE_ACCELERATION
+#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1914,7 +1914,7 @@
 //  If CLOCKWISE normally moves UP this makes it go DOWN.
 //
 //ULTI_STEEL_TBD - Some users like un-inversed menu navigation
-#define REVERSE_MENU_DIRECTION
+//#define REVERSE_MENU_DIRECTION
 
 //
 // This option reverses the encoder direction for Select Screen.
@@ -1937,7 +1937,7 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-//#define SPEAKER
+#define SPEAKER
 
 //
 // The duration and frequency for the UI feedback sound.

@@ -15,6 +15,22 @@
 
 //ULTI_TESTING - То, что поломалось\изменилось от офф Marlin и нуждается в тесте
 
+#### Изменения:
+Убрана инверсия энкодера - REVERSE_ENCODER_DIRECTION
+
+Включено отображение процента при печати с SD - DOGM_SD_PERCENT
+
+Включен динамик - SPEAKER
+
+FAN_KICKSTART_TIME=150, FAN_MIN_PWM 65 = 65
+
+Включено GCODE_REPEAT_MARKERS
+
+Включено S_CURVE_ACCELERATION - Нужно больше тестов!
+
+ADVANCED_PAUSE_FEATURE - загрузка и смена филамента из меню
+
+Отвод бошки при паузе
 
 ------
 
