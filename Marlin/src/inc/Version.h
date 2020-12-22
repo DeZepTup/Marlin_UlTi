@@ -25,7 +25,7 @@
  * Release version. Leave the Marlin version or apply a custom scheme.
  */
 #ifndef SHORT_BUILD_VERSION
-  #define SHORT_BUILD_VERSION "v1.1.14-DeZ-Luxury"
+  #define SHORT_BUILD_VERSION "v1.1.15-DeZ-Luxury"
 #endif
 
 /**
@@ -33,7 +33,7 @@
  * vendor name, download location, GitHub account, etc.
  */
 #ifndef DETAILED_BUILD_VERSION
-  #define DETAILED_BUILD_VERSION "UlTi steel v1.1.14, DeZepTup/Marlin_UlTi-Luxury, 29.10.2020"
+  #define DETAILED_BUILD_VERSION "UlTi steel v1.1.15, DeZepTup/Marlin_UlTi-Luxury, 22.12.2020"
 #endif
 
 /**
@@ -42,7 +42,7 @@
  * version was tagged.
  */
 #ifndef STRING_DISTRIBUTION_DATE
-  #define STRING_DISTRIBUTION_DATE "2020-12-21"
+  #define STRING_DISTRIBUTION_DATE "2020-12-22"
 #endif
 
 /**
@@ -73,7 +73,7 @@
  * Define a generic printer name to be output to the LCD after booting Marlin.
  */
 #ifndef MACHINE_NAME
-  #define MACHINE_NAME "USv1.1.14-DeZ/main"
+  #define MACHINE_NAME "USv1.1.15-DeZ/Luxury"
 #endif
 
 /**
