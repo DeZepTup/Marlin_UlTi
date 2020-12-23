@@ -70,7 +70,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Ivilol.ru, UlTi Steel v1.1.15, DeZepTup/Marlin_UlTi-Luxury, 22.12.2020)" // Author, Official Version, repository/fork-branch, update date
+#define STRING_CONFIG_H_AUTHOR "(Ivilol.ru, UlTi Steel v1.1.15, DeZepTup/Marlin_UlTi-myLuxury, 23.12.2020)" // Author, Official Version, repository/fork-branch, update date
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -135,7 +135,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "UlTi Steel v1.1.15, DeZepTup/Marlin_UlTi-Luxury, 22.12.2020" //Official Version, repository/fork-branch, update date
+#define CUSTOM_MACHINE_NAME "UlTi Steel v1.1.15, DeZepTup/Marlin_UlTi-myLuxury, 23.12.2020" //Official Version, repository/fork-branch, update date
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -410,7 +410,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 11
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -1646,7 +1646,7 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
+  #define NOZZLE_PARK_POINT { (X_MIN_POS + 5), (Y_MIN_POS + 5), 20 } //ULTI_STEEL_CUSTOM
   //#define NOZZLE_PARK_X_ONLY          // X move only is required to park
   //#define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
   //#define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance //ULTI_STEEL_TBD
