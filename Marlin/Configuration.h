@@ -70,7 +70,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Ivilol.ru, UlTi Steel v1.1.16, DeZepTup/Marlin_UlTi-myLuxury, 23.12.2020)" // Author, Official Version, repository/fork-branch, update date
+#define STRING_CONFIG_H_AUTHOR "(Ivilol.ru, UlTi Steel v1.1.17, DeZepTup/Marlin_UlTi-myLuxury, 30.12.2020)" // Author, Official Version, repository/fork-branch, update date
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -135,7 +135,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "UlTi Steel v1.1.16, DeZepTup/Marlin_UlTi-myLuxury, 23.12.2020" //Official Version, repository/fork-branch, update date
+#define CUSTOM_MACHINE_NAME "ULTI v1.1.17 myLuxury" //Official Version, repository/fork-branch, update date
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -410,7 +410,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 11
+#define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -494,9 +494,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  22.20
-    #define DEFAULT_Ki   1.08
-    #define DEFAULT_Kd 114.00
+    #define DEFAULT_Kp  22.20 //25.21
+    #define DEFAULT_Ki  1.08 //2.38
+    #define DEFAULT_Kd  114.00 //66.81
   #endif
 #endif // PIDTEMP
 
@@ -1623,12 +1623,12 @@
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
 #define PREHEAT_1_TEMP_HOTEND 190
-#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
-#define PREHEAT_2_TEMP_HOTEND 230
-#define PREHEAT_2_TEMP_BED     90
+#define PREHEAT_2_TEMP_HOTEND 220
+#define PREHEAT_2_TEMP_BED     110
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
 /**
