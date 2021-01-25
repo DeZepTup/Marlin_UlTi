@@ -154,9 +154,9 @@ void GcodeSuite::G35() {
       const float decimal_part = adjust - float(full_turns);
       const int minutes = trunc(decimal_part * 60.0f);
 
-      SERIAL_ECHOPGM("Turn ");
-      SERIAL_ECHOPGM_P((char *)pgm_read_ptr(&tramming_point_name[i]));
-      SERIAL_ECHOPAIR(" ", (screw_thread & 1) == (adjust > 0) ? "CCW" : "CW", " by ", abs(full_turns), " turns");
+      SERIAL_ECHOPAIR("Turn ", tramming_point_name[i],
+             " ", (screw_thread & 1) == (adjust > 0) ? "CCW" : "CW",
+             " by ", abs(full_turns), " turns");
       if (minutes) SERIAL_ECHOPAIR(" and ", abs(minutes), " minutes");
       if (ENABLED(REPORT_TRAMMING_MM)) SERIAL_ECHOPAIR(" (", -diff, "mm)");
       SERIAL_EOL();

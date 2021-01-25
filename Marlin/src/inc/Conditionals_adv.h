@@ -33,7 +33,7 @@
 // Determine NUM_SERVOS if none was supplied
 #ifndef NUM_SERVOS
   #define NUM_SERVOS 0
-  #if ANY(HAS_Z_SERVO_PROBE, CHAMBER_VENT, SWITCHING_TOOLHEAD, SWITCHING_EXTRUDER, SWITCHING_NOZZLE, SPINDLE_SERVO)
+  #if ANY(CHAMBER_VENT, HAS_Z_SERVO_PROBE, SWITCHING_EXTRUDER, SWITCHING_NOZZLE)
     #if NUM_SERVOS <= Z_PROBE_SERVO_NR
       #undef NUM_SERVOS
       #define NUM_SERVOS (Z_PROBE_SERVO_NR + 1)
@@ -61,10 +61,6 @@
     #if NUM_SERVOS <= SWITCHING_EXTRUDER_E23_SERVO_NR
       #undef NUM_SERVOS
       #define NUM_SERVOS (SWITCHING_EXTRUDER_E23_SERVO_NR + 1)
-    #endif
-    #if NUM_SERVOS <= SPINDLE_SERVO_NR
-      #undef NUM_SERVOS
-      #define NUM_SERVOS (SPINDLE_SERVO_NR + 1)
     #endif
   #endif
 #endif
@@ -239,7 +235,10 @@
   #define NEEDS_HARDWARE_PWM 1
 #endif
 
-#if !defined(__AVR__) || !defined(USBCON)
+#if defined(__AVR__) && defined(USBCON)
+  #define IS_AT90USB 1
+  #undef SERIAL_XON_XOFF // Not supported on USB-native devices
+#else
   // Define constants and variables for buffering serial data.
   // Use only 0 or powers of 2 greater than 1
   // : [0, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, ...]
@@ -251,9 +250,6 @@
   #ifndef TX_BUFFER_SIZE
     #define TX_BUFFER_SIZE 32
   #endif
-#else
-  // SERIAL_XON_XOFF not supported on USB-native devices
-  #undef SERIAL_XON_XOFF
 #endif
 
 #if ENABLED(HOST_ACTION_COMMANDS)

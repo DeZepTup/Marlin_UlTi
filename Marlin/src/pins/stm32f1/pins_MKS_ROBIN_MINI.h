@@ -143,7 +143,27 @@
  * If the screen stays white, disable 'LCD_RESET_PIN'
  * to let the bootloader init the screen.
  */
+<<<<<<< HEAD
 #if EITHER(HAS_FSMC_GRAPHICAL_TFT, TFT_320x240)
+=======
+#if ENABLED(TOUCH_SCREEN)
+  #ifndef XPT2046_X_CALIBRATION
+    #define XPT2046_X_CALIBRATION          12033
+  #endif
+  #ifndef XPT2046_Y_CALIBRATION
+    #define XPT2046_Y_CALIBRATION          -9047
+  #endif
+  #ifndef XPT2046_X_OFFSET
+    #define XPT2046_X_OFFSET                 -30
+  #endif
+  #ifndef XPT2046_Y_OFFSET
+    #define XPT2046_Y_OFFSET                 254
+  #endif
+#endif
+
+#if ENABLED(FSMC_GRAPHICAL_TFT)
+
+>>>>>>> 2.0.x
   #define FSMC_CS_PIN                       PD7   // NE4
   #define FSMC_RS_PIN                       PD11  // A0
 

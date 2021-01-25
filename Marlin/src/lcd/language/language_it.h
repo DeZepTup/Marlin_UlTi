@@ -668,15 +668,4 @@ namespace Language_it {
   PROGMEM Language_Str MSG_REHEATING                       = _UxGT("Riscaldando...");
 
   PROGMEM Language_Str MSG_PROBE_WIZARD                    = _UxGT("Proc.guid.sonda Z");
-  PROGMEM Language_Str MSG_PROBE_WIZARD_PROBING            = _UxGT("Tasteggio rif.Z");
-  PROGMEM Language_Str MSG_PROBE_WIZARD_MOVING             = _UxGT("Movim.a pos.tasteg.");
-
-  PROGMEM Language_Str MSG_SOUND                           = _UxGT("Suono");
-
-  PROGMEM Language_Str MSG_TOP_LEFT                        = _UxGT("Alto Sinistra");
-  PROGMEM Language_Str MSG_BOTTOM_LEFT                     = _UxGT("Basso Sinistra");
-  PROGMEM Language_Str MSG_TOP_RIGHT                       = _UxGT("Alto Destra");
-  PROGMEM Language_Str MSG_BOTTOM_RIGHT                    = _UxGT("Basso Destra");
-  PROGMEM Language_Str MSG_CALIBRATION_COMPLETED           = _UxGT("Calibrazione completata");
-  PROGMEM Language_Str MSG_CALIBRATION_FAILED              = _UxGT("Calibrazion fallita");
 }

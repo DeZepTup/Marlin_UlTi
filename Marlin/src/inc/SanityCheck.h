@@ -428,7 +428,7 @@
 #elif defined(CHAMBER_HEATER_PIN)
   #error "CHAMBER_HEATER_PIN is now HEATER_CHAMBER_PIN."
 #elif defined(TMC_Z_CALIBRATION)
-  #error "TMC_Z_CALIBRATION has been deprecated in favor of MECHANICAL_GANTRY_CALIBRATION."
+  #error "TMC_Z_CALIBRATION has been deprecated in favor of MECHANICAL_GANTRY_CALIBRATION. Please update your configuration."
 #elif defined(Z_MIN_PROBE_ENDSTOP)
   #error "Z_MIN_PROBE_ENDSTOP is no longer required. Please remove it."
 #elif defined(DUAL_NOZZLE_DUPLICATION_MODE)
@@ -452,7 +452,7 @@
 #elif defined(POWER_SUPPLY)
   #error "POWER_SUPPLY is now obsolete. Please remove it."
 #elif defined(MKS_ROBIN_TFT)
-  #error "MKS_ROBIN_TFT is now FSMC_GRAPHICAL_TFT."
+  #error "MKS_ROBIN_TFT is now FSMC_GRAPHICAL_TFT. Please update your configuration."
 #elif defined(SDPOWER)
   #error "SDPOWER is now SDPOWER_PIN."
 #elif defined(STRING_SPLASH_LINE1) || defined(STRING_SPLASH_LINE2)
@@ -526,15 +526,9 @@
 #elif defined(ANYCUBIC_TFT_MODEL)
   #error "ANYCUBIC_TFT_MODEL is now ANYCUBIC_LCD_I3MEGA."
 #elif defined(EVENT_GCODE_SD_STOP)
-  #error "EVENT_GCODE_SD_STOP is now EVENT_GCODE_SD_ABORT."
+  #error "EVENT_GCODE_SD_STOP is now EVENT_GCODE_SD_ABORT. Please update your Configuration.h."
 #elif defined(GRAPHICAL_TFT_ROTATE_180)
-  #error "GRAPHICAL_TFT_ROTATE_180 is now TFT_ROTATION set to TFT_ROTATE_180."
-#elif defined(PROBE_OFFSET_START)
-  #error "PROBE_OFFSET_START is now PROBE_OFFSET_WIZARD_START_Z."
-#elif defined(POWER_LOSS_PULL)
-  #error "POWER_LOSS_PULL is now specifically POWER_LOSS_PULL(UP|DOWN)."
-#elif defined(SHORT_MANUAL_Z_MOVE)
-  #error "SHORT_MANUAL_Z_MOVE is now FINE_MANUAL_MOVE, applying to Z on most printers."
+  #error "GRAPHICAL_TFT_ROTATE_180 is now TFT_ROTATION set to TFT_ROTATE_180. Please update your Configuration.h."
 #elif defined(FIL_RUNOUT_INVERTING)
   #if FIL_RUNOUT_INVERTING
     #error "FIL_RUNOUT_INVERTING true is now FIL_RUNOUT_STATE HIGH."
@@ -582,16 +576,7 @@
 /**
  * Serial
  */
-#ifndef SERIAL_PORT
-  #error "SERIAL_PORT must be defined."
-#elif defined(SERIAL_PORT_2) && SERIAL_PORT_2 == SERIAL_PORT
-  #error "SERIAL_PORT_2 cannot be the same as SERIAL_PORT."
-#elif defined(LCD_SERIAL_PORT) && LCD_SERIAL_PORT == SERIAL_PORT
-  #error "LCD_SERIAL_PORT cannot be the same as SERIAL_PORT."
-#elif defined(LCD_SERIAL_PORT) && LCD_SERIAL_PORT == SERIAL_PORT_2
-  #error "LCD_SERIAL_PORT cannot be the same as SERIAL_PORT_2."
-#endif
-#if !(defined(__AVR__) && defined(USBCON))
+#if !IS_AT90USB
   #if ENABLED(SERIAL_XON_XOFF) && RX_BUFFER_SIZE < 1024
     #error "SERIAL_XON_XOFF requires RX_BUFFER_SIZE >= 1024 for reliable transfers without drops."
   #elif RX_BUFFER_SIZE && (RX_BUFFER_SIZE < 2 || !IS_POWER_OF_2(RX_BUFFER_SIZE))
@@ -1853,18 +1838,18 @@ static_assert(hbm[Z_AXIS] >= 0, "HOMING_BUMP_MM.Z must be greater than or equal 
 #endif
 
 #if ENABLED(CHAMBER_FAN) && !(defined(CHAMBER_FAN_MODE) && WITHIN(CHAMBER_FAN_MODE, 0, 2))
-  #error "CHAMBER_FAN_MODE must be between 0 and 2."
+  #error "CHAMBER_FAN_MODE must be between 0 and 2. Please update your Configuration_adv.h."
 #endif
 
 #if ENABLED(CHAMBER_VENT)
   #ifndef CHAMBER_VENT_SERVO_NR
-    #error "CHAMBER_VENT_SERVO_NR is required for CHAMBER SERVO."
+    #error "CHAMBER_VENT_SERVO_NR is required for CHAMBER SERVO. Update your Configuration_adv.h."
   #elif !NUM_SERVOS
     #error "NUM_SERVOS is required for a Heated Chamber vent servo (CHAMBER_VENT_SERVO_NR)."
   #elif CHAMBER_VENT_SERVO_NR >= NUM_SERVOS
     #error "CHAMBER_VENT_SERVO_NR must be smaller than NUM_SERVOS."
   #elif HAS_Z_SERVO_PROBE && CHAMBER_VENT_SERVO_NR == Z_PROBE_SERVO_NR
-    #error "CHAMBER SERVO is already used by BLTOUCH."
+    #error "CHAMBER SERVO is already used by BLTOUCH. Please change."
   #elif CHAMBER_VENT_SERVO_NR == 0 && !PIN_EXISTS(SERVO0)
     #error "SERVO0_PIN must be defined for your Heated Chamber vent servo."
   #elif CHAMBER_VENT_SERVO_NR == 1 && !PIN_EXISTS(SERVO1)
@@ -1890,10 +1875,8 @@ static_assert(hbm[Z_AXIS] >= 0, "HOMING_BUMP_MM.Z must be greater than or equal 
   #error "TEMP_SENSOR_1 is required with TEMP_SENSOR_1_AS_REDUNDANT."
 #endif
 
-#if MAX6675_0_IS_MAX31865 && !(defined(MAX31865_SENSOR_OHMS_0) && defined(MAX31865_CALIBRATION_OHMS_0))
-  #error "MAX31865_SENSOR_OHMS_0 and MAX31865_CALIBRATION_OHMS_0 must be set if TEMP_SENSOR_0 is MAX31865."
-#elif MAX6675_1_IS_MAX31865 && !(defined(MAX31865_SENSOR_OHMS_1) && defined(MAX31865_CALIBRATION_OHMS_1))
-  #error "MAX31865_SENSOR_OHMS_1 and MAX31865_CALIBRATION_OHMS_1 must be set if TEMP_SENSOR_1 is MAX31865."
+#if ENABLED(MAX6675_IS_MAX31865) && (!defined(MAX31865_SENSOR_OHMS) || !defined(MAX31865_CALIBRATION_OHMS))
+  #error "MAX31865_SENSOR_OHMS and MAX31865_CALIBRATION_OHMS must be set in Configuration.h when using a MAX31865 temperature sensor."
 #endif
 
 /**
@@ -2150,9 +2133,9 @@ static_assert(hbm[Z_AXIS] >= 0, "HOMING_BUMP_MM.Z must be greater than or equal 
 #endif
 
 /**
- * emergency-command parser
+ * Emergency Command Parser
  */
-#if ENABLED(EMERGENCY_PARSER) && defined(__AVR__) && defined(USBCON)
+#if BOTH(IS_AT90USB, EMERGENCY_PARSER)
   #error "EMERGENCY_PARSER does not work on boards with AT90USB processors (USBCON)."
 #endif
 

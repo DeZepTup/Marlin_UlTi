@@ -53,7 +53,7 @@ exec_test $1 $2 "RAMPS | DELTA | RRD LCD | DELTA_AUTO_CALIBRATION | DELTA_CALIBR
 use_example_configs delta/generic
 opt_set LCD_LANGUAGE cz
 opt_enable REPRAP_DISCOUNT_SMART_CONTROLLER DELTA_CALIBRATION_MENU AUTO_BED_LEVELING_BILINEAR BLTOUCH
-exec_test $1 $2 "DELTA | RRD LCD | ABL Bilinear | BLTOUCH" "$3"
+exec_test $1 $2 "DELTA | RRD LCD | ABL Bilinear | BLTOUCH"
 
 # clean up
 restore_configs

@@ -500,7 +500,7 @@ void do_z_clearance(const float &zclear, const bool z_trusted/*=true*/, const bo
   const bool rel = raise_on_untrusted && !z_trusted;
   float zdest = zclear + (rel ? current_position.z : 0.0f);
   if (!lower_allowed) NOLESS(zdest, current_position.z);
-  do_blocking_move_to_z(_MIN(zdest, Z_MAX_POS), TERN(HAS_BED_PROBE, z_probe_fast_mm_s, homing_feedrate(Z_AXIS)));
+  do_blocking_move_to_z(_MIN(zdest, Z_MAX_POS), MMM_TO_MMS(TERN(HAS_BED_PROBE, Z_PROBE_SPEED_FAST, HOMING_FEEDRATE_Z)));
 }
 
 //

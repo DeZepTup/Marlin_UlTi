@@ -171,60 +171,26 @@ void _menu_move_distance(const AxisEnum axis, const screenFunc_t func, const int
   }
 
   BACK_ITEM(MSG_MOVE_AXIS);
-  if (parser.using_inch_units()) {
-    SUBMENU(MSG_MOVE_01IN,   []{ _goto_manual_move(IN_TO_MM(0.100f)); });
-    SUBMENU(MSG_MOVE_001IN,  []{ _goto_manual_move(IN_TO_MM(0.010f)); });
-    SUBMENU(MSG_MOVE_0001IN, []{ _goto_manual_move(IN_TO_MM(0.001f)); });
-  }
-  else {
-    SUBMENU(MSG_MOVE_10MM, []{ _goto_manual_move(10);    });
-    SUBMENU(MSG_MOVE_1MM,  []{ _goto_manual_move( 1);    });
-    SUBMENU(MSG_MOVE_01MM, []{ _goto_manual_move( 0.1f); });
-    if (axis == Z_AXIS && (FINE_MANUAL_MOVE) > 0.0f && (FINE_MANUAL_MOVE) < 0.1f) {
-      // Determine digits needed right of decimal
-      constexpr uint8_t digs = !UNEAR_ZERO((FINE_MANUAL_MOVE) * 1000 - int((FINE_MANUAL_MOVE) * 1000)) ? 4 :
-                               !UNEAR_ZERO((FINE_MANUAL_MOVE) *  100 - int((FINE_MANUAL_MOVE) *  100)) ? 3 : 2;
-      PGM_P const label = GET_TEXT(MSG_MOVE_N_MM);
-      char tmp[strlen_P(label) + 10 + 1], numstr[10];
-      sprintf_P(tmp, label, dtostrf(FINE_MANUAL_MOVE, 1, digs, numstr));
+  SUBMENU(MSG_MOVE_10MM, []{ _goto_manual_move(10);    });
+  SUBMENU(MSG_MOVE_1MM,  []{ _goto_manual_move( 1);    });
+  SUBMENU(MSG_MOVE_01MM, []{ _goto_manual_move( 0.1f); });
+  if (axis == Z_AXIS && (SHORT_MANUAL_Z_MOVE) > 0.0f && (SHORT_MANUAL_Z_MOVE) < 0.1f) {
+    // Determine digits needed right of decimal
+    constexpr uint8_t digs = !UNEAR_ZERO((SHORT_MANUAL_Z_MOVE) * 1000 - int((SHORT_MANUAL_Z_MOVE) * 1000)) ? 4 :
+                              !UNEAR_ZERO((SHORT_MANUAL_Z_MOVE) *  100 - int((SHORT_MANUAL_Z_MOVE) *  100)) ? 3 : 2;
+    PGM_P const label = GET_TEXT(MSG_MOVE_Z_DIST);
+    char tmp[strlen_P(label) + 10 + 1], numstr[10];
+    sprintf_P(tmp, label, dtostrf(SHORT_MANUAL_Z_MOVE, 1, digs, numstr));
 
-//ULTI_STEEL_CUSTOM
-//     #if DISABLED(HAS_GRAPHICAL_TFT)
-//       extern const char NUL_STR[];
-//       SUBMENU_P(NUL_STR, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
-//       MENU_ITEM_ADDON_START(0
-//         #if HAS_CHARACTER_LCD
-//           + 1
-//         #endif
-//       );
-//         char tmp[30], numstr[10];
-//         // Determine digits needed right of decimal
-//         const uint8_t digs = !UNEAR_ZERO((SHORT_MANUAL_Z_MOVE) * 1000 - int((SHORT_MANUAL_Z_MOVE) * 1000)) ? 4 :
-//                              !UNEAR_ZERO((SHORT_MANUAL_Z_MOVE) *  100 - int((SHORT_MANUAL_Z_MOVE) *  100)) ? 3 : 2;
-//         sprintf_P(tmp, GET_TEXT(MSG_MOVE_Z_DIST), dtostrf(SHORT_MANUAL_Z_MOVE, 1, digs, numstr));
-//         lcd_put_u8str(tmp);
-//       MENU_ITEM_ADDON_END();
-//     #else
-//       SUBMENU_P(tmp, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
-//     #endif
-//   }
-//   END_MENU();
-// }
-
-//NOT WORKING AFTER UPDATE - CHECK WITH OFICIAL MARLIN
-//ULTI_TESTING
-
-//MARLIN_OFFICIAL:
-      #if DISABLED(HAS_GRAPHICAL_TFT)
-        extern const char NUL_STR[];
-        SUBMENU_P(NUL_STR, []{ _goto_manual_move(float(FINE_MANUAL_MOVE)); });
-        MENU_ITEM_ADDON_START(0 + ENABLED(HAS_MARLINUI_HD44780));
-        lcd_put_u8str(tmp);
-        MENU_ITEM_ADDON_END();
-      #else
-        SUBMENU_P(tmp, []{ _goto_manual_move(float(FINE_MANUAL_MOVE)); });
-      #endif
-    }
+    #if DISABLED(HAS_GRAPHICAL_TFT)
+      extern const char NUL_STR[];
+      SUBMENU_P(NUL_STR, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
+      MENU_ITEM_ADDON_START(0 + ENABLED(HAS_MARLINUI_HD44780));
+      lcd_put_u8str(tmp);
+      MENU_ITEM_ADDON_END();
+    #else
+      SUBMENU_P(tmp, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
+    #endif
   }
   END_MENU();
 }
@@ -235,7 +201,6 @@ void _menu_move_distance(const AxisEnum axis, const screenFunc_t func, const int
 //        SUBMENU_P(tmp, []{ _goto_manual_move(float(SHORT_MANUAL_Z_MOVE)); });
 //      #endif
 //
-
 
 #if E_MANUAL
 

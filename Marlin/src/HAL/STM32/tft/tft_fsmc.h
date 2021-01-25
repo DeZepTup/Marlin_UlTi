@@ -40,9 +40,9 @@
   #define LCD_READ_ID4 0xD3   // Read display identification information (0xD3 on ILI9341)
 #endif
 
-#define DATASIZE_8BIT  SPI_DATASIZE_8BIT
-#define DATASIZE_16BIT SPI_DATASIZE_16BIT
-#define TFT_IO_DRIVER  TFT_FSMC
+#define DATASIZE_8BIT    SPI_DATASIZE_8BIT
+#define DATASIZE_16BIT   SPI_DATASIZE_16BIT
+#define TFT_IO_DRIVER TFT_FSMC
 
 typedef struct {
   __IO uint16_t REG;

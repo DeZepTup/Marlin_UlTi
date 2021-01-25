@@ -23,6 +23,9 @@
 
 #if HAS_TFT_LVGL_UI
 
+#include "SPI_TFT.h"
+
+#include "lv_conf.h"
 #include "draw_ui.h"
 #include <lv_conf.h>
 

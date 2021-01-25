@@ -592,7 +592,7 @@ namespace Language_sk {
   PROGMEM Language_Str MSG_PASSWORD_SET                    = _UxGT("Heslo je ");
   PROGMEM Language_Str MSG_START_OVER                      = _UxGT("Začať odznova");
   PROGMEM Language_Str MSG_REMINDER_SAVE_SETTINGS          = _UxGT("Nezabudnite uložiť!");
-  PROGMEM Language_Str MSG_PASSWORD_REMOVED                = _UxGT("Heslo odstránené");
+  PROGMEM Language_Str MSG_PASSWORD_REMOVED                = _UxGT("Heslo odstránene");
 
   //
   // Filament Change screens show up to 3 lines on a 4-line display

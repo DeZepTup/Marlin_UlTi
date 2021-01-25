@@ -2582,6 +2582,8 @@ void Stepper::init() {
                | (INVERT_Y_DIR ? _BV(Y_AXIS) : 0)
                | (INVERT_Z_DIR ? _BV(Z_AXIS) : 0));
 
+  set_directions();
+
   #if HAS_MOTOR_CURRENT_SPI || HAS_MOTOR_CURRENT_PWM
     initialized = true;
     digipot_init();
@@ -2963,7 +2965,7 @@ void Stepper::report_positions() {
   #if HAS_MOTOR_CURRENT_SPI || HAS_MOTOR_CURRENT_PWM
 
     void Stepper::set_digipot_current(const uint8_t driver, const int16_t current) {
-      if (WITHIN(driver, 0, MOTOR_CURRENT_COUNT - 1))
+      if (WITHIN(driver, 0, COUNT(motor_current_setting) - 1))
         motor_current_setting[driver] = current; // update motor_current_setting
 
       if (!initialized) return;

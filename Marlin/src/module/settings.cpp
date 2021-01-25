@@ -3747,29 +3747,23 @@ void MarlinSettings::reset() {
       #endif
     #endif
 
-    #if EITHER(HAS_MOTOR_CURRENT_SPI, HAS_MOTOR_CURRENT_PWM)
+    #if HAS_MOTOR_CURRENT_SPI || HAS_MOTOR_CURRENT_PWM
       CONFIG_ECHO_HEADING("Stepper motor currents:");
       CONFIG_ECHO_START();
       #if HAS_MOTOR_CURRENT_PWM
-        SERIAL_ECHOLNPAIR_P(                                   // PWM-based has 3 values:
-            PSTR("  M907 X"), stepper.motor_current_setting[0] // X and Y
-                  , SP_Z_STR, stepper.motor_current_setting[1] // Z
-                  , SP_E_STR, stepper.motor_current_setting[2] // E
+        SERIAL_ECHOLNPAIR_P(
+            PSTR("  M907 X"), stepper.motor_current_setting[0]
+          , SP_Z_STR, stepper.motor_current_setting[1]
+          , SP_E_STR, stepper.motor_current_setting[2]
         );
       #elif HAS_MOTOR_CURRENT_SPI
-        SERIAL_ECHOPGM("  M907");                              // SPI-based has 5 values:
-        LOOP_XYZE(q) {                                         // X Y Z E (map to X Y Z E0 by default)
-          SERIAL_CHAR(' ', axis_codes[q]);
+        SERIAL_ECHOPGM("  M907");
+        LOOP_L_N(q, MOTOR_CURRENT_COUNT) {
+          SERIAL_CHAR(' ');
+          SERIAL_CHAR(axis_codes[q]);
           SERIAL_ECHO(stepper.motor_current_setting[q]);
         }
-        SERIAL_CHAR(' ', 'B');                                 // B (maps to E1 by default)
-        SERIAL_ECHOLN(stepper.motor_current_setting[4]);
       #endif
-    #elif ENABLED(HAS_MOTOR_CURRENT_I2C)                       // i2c-based has any number of values
-      // Values sent over i2c are not stored.
-      // Indexes map directly to drivers, not axes.
-    #elif ENABLED(HAS_MOTOR_CURRENT_DAC)                       // DAC-based has 4 values, for X Y Z E
-      // Values sent over i2c are not stored. Uses indirect mapping.
     #endif
 
     /**

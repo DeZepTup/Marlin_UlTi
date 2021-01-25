@@ -914,13 +914,17 @@ static void z_minus() {
     drawAxisValue(Z_AXIS);
   }
 
-  static void step_size() {
-    motionAxisState.currentStepSize = motionAxisState.currentStepSize / 10.0;
-    if (motionAxisState.currentStepSize < 0.0015) motionAxisState.currentStepSize = 10.0;
-    quick_feedback();
-    drawCurStepValue();
-  }
-#endif
+static void do_home() {
+  quick_feedback();
+  drawMessage(GET_TEXT(MSG_LEVEL_BED_HOMING));
+  queue.inject_P(G28_STR);
+  // Disable touch until home is done
+  TERN_(HAS_TFT_XPT2046, touch.disable());
+  drawAxisValue(E_AXIS);
+  drawAxisValue(X_AXIS);
+  drawAxisValue(Y_AXIS);
+  drawAxisValue(Z_AXIS);
+}
 
 #if HAS_BED_PROBE
   static void z_select() {
@@ -1000,13 +1004,13 @@ void MarlinUI::move_axis_screen() {
   motionAxisState.eNamePos.x = x;
   motionAxisState.eNamePos.y = y;
   drawCurESelection();
-  TERN_(HAS_TFT_XPT2046, if (!busy) touch.add_control(BUTTON, x, y, BTN_WIDTH, BTN_HEIGHT, (intptr_t)e_select));
+  TERN_(HAS_TFT_XPT2046, if (!busy) touch.add_control(BUTTON, x, y, BTN_WIDTH, BTN_HEIGHT, (int32_t)e_select));
 
   x += BTN_WIDTH + spacing;
   drawBtn(x, y, "X-", (intptr_t)x_minus, imgLeft, X_BTN_COLOR, !busy);
 
   x += BTN_WIDTH + spacing; //imgHome is 64x64
-  TERN_(HAS_TFT_XPT2046, add_control(TFT_WIDTH / 2 - Images[imgHome].width / 2, y - (Images[imgHome].width - BTN_HEIGHT) / 2, BUTTON, (intptr_t)do_home, imgHome, !busy));
+  TERN_(HAS_TFT_XPT2046, add_control(TFT_WIDTH / 2 - Images[imgHome].width / 2, y - (Images[imgHome].width - BTN_HEIGHT) / 2, BUTTON, (int32_t)do_home, imgHome, !busy));
 
   x += BTN_WIDTH + spacing;
   uint16_t xplus_x = x;
@@ -1055,7 +1059,7 @@ void MarlinUI::move_axis_screen() {
   motionAxisState.stepValuePos.y = y;
   if (!busy) {
     drawCurStepValue();
-    TERN_(HAS_TFT_XPT2046, touch.add_control(BUTTON, motionAxisState.stepValuePos.x, motionAxisState.stepValuePos.y, CUR_STEP_VALUE_WIDTH, BTN_HEIGHT, (intptr_t)step_size));
+    TERN_(HAS_TFT_XPT2046, touch.add_control(BUTTON, motionAxisState.stepValuePos.x, motionAxisState.stepValuePos.y, CUR_STEP_VALUE_WIDTH, BTN_HEIGHT, (int32_t)step_size));
   }
 
   // alinged with x+
