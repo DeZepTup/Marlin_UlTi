@@ -70,7 +70,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Ivilol.ru, UlTi Steel v1.1.17, DeZepTup/Marlin_UlTi-myLuxury, 30.12.2020)" // Author, Official Version, repository/fork-branch, update date
+#define STRING_CONFIG_H_AUTHOR "(Evgen-Steel, DeZepTup/Marlin_UlTi-BigBro, 16.07.2021)" // Author, Official Version, repository/fork-branch, update date
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -747,7 +747,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 1600, 110 } //ULTI_STEEL_CUSTOM
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 1600, 695 } //ULTI_STEEL_CUSTOM
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1465,7 +1465,7 @@
 #define LEVEL_BED_CORNERS //ULTI_STEEL_CUSTOM
 
 #if ENABLED(LEVEL_BED_CORNERS)  
-  #define LEVEL_CORNERS_3POINT 
+  //#define LEVEL_CORNERS_3POINT 
   #define LEVEL_CORNERS_INSET_LFRB { 5, 5, 5, 5 } // (mm) Left, Front, Right, Back insets
   //#define LEVEL_CORNERS_INSET_LFRB { 30, 30, 30, 30 } // (mm) Left, Front, Right, Back insets //MARLIN_OFFICIAL
   #define LEVEL_CORNERS_HEIGHT      0.0   // (mm) Z height of nozzle at leveling points

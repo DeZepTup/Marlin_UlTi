@@ -25,7 +25,7 @@
  * Release version. Leave the Marlin version or apply a custom scheme.
  */
 #ifndef SHORT_BUILD_VERSION
-  #define SHORT_BUILD_VERSION "v1.1.17-DeZ-myLuxury"
+  #define SHORT_BUILD_VERSION "Evgen-Steel-BigBro"
 #endif
 
 /**
@@ -33,7 +33,7 @@
  * vendor name, download location, GitHub account, etc.
  */
 #ifndef DETAILED_BUILD_VERSION
-  #define DETAILED_BUILD_VERSION "UlTi steel v1.1.17, DeZepTup/Marlin_UlTi-myLuxury, 30.12.2020"
+  #define DETAILED_BUILD_VERSION "Evgen-Steel, DeZepTup/Marlin_UlTi-BigBro, 16.07.2021"
 #endif
 
 /**
@@ -42,7 +42,7 @@
  * version was tagged.
  */
 #ifndef STRING_DISTRIBUTION_DATE
-  #define STRING_DISTRIBUTION_DATE "2020-12-22"
+  #define STRING_DISTRIBUTION_DATE "2021-07-16"
 #endif
 
 /**
